@@ -21,21 +21,21 @@ const Hero = () => {
   }, []);
 
   return (
-    <SectionBackground className="min-h-[calc(100vh-4rem)] pt-32 pb-20">
-      <div className="container mx-auto px-4 relative">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <SectionBackground className="h-screen">
+      <div className="container h-full mx-auto px-4 flex items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-6"
           >
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-50/80 text-primary-600 font-medium text-sm backdrop-blur-sm">
               <Brain className="w-4 h-4 mr-2" />
               AI-Enhanced RFP Platform
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight text-gray-900">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-gray-900">
               Transform Your
               <div className="relative mt-2">
                 <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
@@ -44,21 +44,21 @@ const Hero = () => {
               </div>
             </h1>
 
-            <div className="h-20">
+            <div className="h-16">
               <AnimatePresence mode="wait">
                 <motion.p
                   key={activeFeature}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="text-2xl text-gray-600"
+                  className="text-xl text-gray-600"
                 >
                   {features[activeFeature]}
                 </motion.p>
               </AnimatePresence>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/try-now"
                 className="neural-button"
@@ -90,7 +90,6 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
 
-            {/* Floating Elements */}
             <motion.div
               className="absolute -bottom-6 -left-6 p-6 bg-white rounded-xl shadow-soft"
               initial={{ opacity: 0, y: 20 }}

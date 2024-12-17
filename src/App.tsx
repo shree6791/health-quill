@@ -17,7 +17,7 @@ import Help from './pages/Help';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Auth from './pages/Auth';
-import TryNow from './pages/TryNow';
+import GenerateRFP from './pages/GenerateRFP';
 
 function App() {
   return (
@@ -43,7 +43,7 @@ function App() {
                 path="/try-now" 
                 element={
                   <AuthGuard>
-                    <TryNow />
+                    <GenerateRFP />
                   </AuthGuard>
                 } 
               />

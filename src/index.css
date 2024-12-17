@@ -8,98 +8,62 @@
     --secondary-rgb: 99, 102, 241;
   }
 
-  body {
-    @apply text-gray-900 bg-white;
+  html {
+    @apply antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  body {
+    @apply text-gray-900 bg-white font-sans;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
+
+  /* Responsive text sizes */
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply text-base sm:text-lg;
+  }
 }
 
 @layer components {
-  .neural-bg {
-    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0);
-    background-size: 40px 40px;
+  .responsive-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
-  .holographic-card {
-    @apply relative overflow-hidden rounded-2xl border border-white/10
-           bg-gradient-to-br from-white/5 to-white/10
-           backdrop-blur-md;
+
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
   }
-  
-  .holographic-card::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent
-           -translate-x-full hover:translate-x-full transition-transform duration-1000;
+
+  .responsive-flex {
+    @apply flex flex-col sm:flex-row items-center gap-4;
   }
-  
+
+  .responsive-padding {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20;
+  }
+
   .neural-button {
-    @apply relative px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500
-           rounded-xl overflow-hidden;
-  }
-  
-  .neural-button:hover::before {
-    content: '';
-    @apply absolute inset-0 bg-white/20 transform -skew-x-12 transition-transform duration-500;
-  }
-  
-  .data-stream {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(var(--primary-rgb), 0.2) 50%,
-      transparent 100%
-    );
-    animation: dataStream 2s linear infinite;
-  }
-  
-  .quantum-field {
-    background: radial-gradient(
-      circle at center,
-      rgba(var(--primary-rgb), 0.2) 0%,
-      transparent 70%
-    );
-    animation: quantumPulse 4s ease infinite;
+    @apply relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary-500 to-secondary-500
+           rounded-xl overflow-hidden transition-all duration-300
+           hover:shadow-lg active:scale-95;
   }
 }
 
-@keyframes dataStream {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes quantumPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.5);
-    opacity: 0.2;
-  }
-}
-
-@keyframes neuralGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 5px rgba(var(--primary-rgb), 0.5));
-  }
-  50% {
-    filter: drop-shadow(0 0 20px rgba(var(--primary-rgb), 0.8));
-  }
-}
-
-.neural-glow {
-  animation: neuralGlow 2s ease-in-out infinite;
-}
-
-/* Neural Network Background */
+/* Neural network background */
 .neural-network {
   background-image: 
     radial-gradient(circle at center, rgba(var(--primary-rgb), 0.1) 0%, transparent 50%),
